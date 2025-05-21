@@ -10,8 +10,8 @@
             <tr>
                 <th>ID</th>
                 <th>Nama Produk</th>
-                <th>Harga</th>
                 <th>Stok</th>
+                <th>Harga</th>
                 <th>Aksi</th>
             </tr>
         </thead>
