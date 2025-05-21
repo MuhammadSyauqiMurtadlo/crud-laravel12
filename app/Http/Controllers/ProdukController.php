@@ -13,7 +13,7 @@ class ProdukController extends Controller
     public function index()
     {
         // Fetch all products from the database
-        $produks = \App\Models\Produk::all();
+        $produks = \App\Models\Produk::paginate(10);
 
         // Return the view with the products
         return view('produk.index', compact('produks'));
@@ -47,7 +47,7 @@ class ProdukController extends Controller
         ]);
 
         // Redirect to the index page with a success message
-        return redirect()->route('produks.index')->with('success', 'Product created successfully.');
+        return redirect()->route('produk.index')->with('success', 'Product created successfully.');
     }
 
     /**
@@ -91,7 +91,7 @@ class ProdukController extends Controller
         ]);
 
         // Redirect to the index page with a success message
-        return redirect()->route('produks.index')->with('success', 'Product updated successfully.');
+        return redirect()->route('produk.index')->with('success', 'Product updated successfully.');
     }
 
     /**
@@ -104,6 +104,6 @@ class ProdukController extends Controller
         $produk->delete();
 
         // Redirect to the index page with a success message
-        return redirect()->route('produks.index')->with('success', 'Product deleted successfully.');
+        return redirect()->route('produk.index')->with('success', 'Product deleted successfully.');
     }
 }
