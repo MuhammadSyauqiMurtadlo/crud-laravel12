@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('title', 'Produk')
+@section('judul', 'Daftar Produk')
 
-<body>
-
-    <h1>Data Produk</h1>
-    <a href="{{ route('produk.create') }}">Tambah Produk</a>
-    <table border="1">
+@section('content')
+    <a href="{{ route('produk.create') }}" style="margin-bottom: 20px;">Tambah Produk</a>
+    <table border="1" cellpadding="10">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nama</th>
+                <th>Nama Produk</th>
                 <th>Harga</th>
                 <th>Stok</th>
                 <th>Aksi</th>
@@ -27,21 +20,21 @@
                 <tr>
                     <td>{{ $produk->id }}</td>
                     <td>{{ $produk->nama_produk }}</td>
-                    <td>{{ $produk->harga }}</td>
                     <td>{{ $produk->stok }}</td>
+                    <td>Rp{{ number_format($produk->harga, 0, ',', '.') }}</td>
                     <td>
-                        <a href="{{ route('produk.edit', $produk->id) }}">Edit</a>
-                        |
+                        <a href="{{ route('produk.edit', $produk->id) }}">Edit</a> |
                         <form action="{{ route('produk.destroy', $produk->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Hapus</button>
+                            <button type="submit"
+                                onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')">Hapus</button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-</body>
 
-</html>
+    {{ $produks->links() }}
+@endsection
