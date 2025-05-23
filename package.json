@@ -21,5 +21,23 @@
     "bugs": {
         "url": "https://github.com/MuhammadSyauqiMurtadlo/crud-laravel12/issues"
     },
-    "homepage": "https://github.com/MuhammadSyauqiMurtadlo/crud-laravel12#readme"
+    "homepage": "https://github.com/MuhammadSyauqiMurtadlo/crud-laravel12#readme",
+    "devDependencies": {
+        "laravel-vite-plugin": "^1.2.0",
+        "vite": "^6.3.5"
+    },
+    "dependencies": {
+        "@inertiajs/react": "^2.0.11",
+        "@vitejs/plugin-react": "^4.5.0",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-react"
+        ],
+        "plugins": [
+            "@babel/plugin-transform-react-jsx"
+        ]
+    }
 }

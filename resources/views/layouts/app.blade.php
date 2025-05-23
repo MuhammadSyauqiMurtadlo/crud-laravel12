@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <div style="padding: 20px;">
         <h1>@yield('judul')</h1>
         <hr>
